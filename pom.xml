@@ -6,11 +6,13 @@
         <artifactId>cucumber-jvm</artifactId>
         <version>1.2.5</version>
     </parent>
+
     <groupId>org.cucumber-testng</groupId>
     <artifactId>cucumber-testng</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Cucumber-JVM: TestNG Scenarios Support</name>
+    <url>https://github.com/prasanta-biswas/cucumber-testng</url>
 
     <dependencies>
         <dependency>
