@@ -10,4 +10,5 @@ import cucumber.runtime.model.CucumberTagStatement;
  */
 public interface CucumberTagStatementWrapper {
     CucumberTagStatement getCucumberScenario();
+    String getCucumberFeature();
 }

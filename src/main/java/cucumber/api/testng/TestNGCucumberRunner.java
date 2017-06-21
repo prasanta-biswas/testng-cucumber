@@ -169,4 +169,40 @@ public class TestNGCucumberRunner {
         }
     }
 
+    /**
+     * @return returns the Cucumber Scenarios as a two dimensional array of
+     * {@link CucumberTagStatement} objects and scenario name.
+     */
+    public Object[][] provideScenariosWithFeature() {
+        try {
+            List<CucumberFeature> features = getFeatures();
+            List<Object[]> scenarioList = new ArrayList<Object[]>(features.size());
+
+            for (CucumberFeature feature : features) {
+                List<CucumberTagStatement> scenarios = feature.getFeatureElements();
+
+                for (CucumberTagStatement scenario: scenarios) {
+                    // If this is a Scenario Outline, split it up so each one is a test.
+                    if (scenario instanceof CucumberScenarioOutline) {
+                        List<CucumberExamples> cucumberExamplesList = ((CucumberScenarioOutline) scenario).getCucumberExamplesList();
+
+                        for (CucumberExamples cucumberExamples : cucumberExamplesList) {
+                            List<CucumberScenario> exampleScenarios = cucumberExamples.createExampleScenarios();
+                            for (CucumberScenario exampleScenario : exampleScenarios) {
+                                scenarioList.add(new Object[]{new CucumberTagStatementWrapperImpl(exampleScenario,feature)});
+                            }
+                        }
+
+                    }
+                    else
+                        scenarioList.add(new Object[]{new CucumberTagStatementWrapperImpl(scenario,feature)});
+                }
+
+            }
+            return scenarioList.toArray(new Object[][]{});
+        } catch (CucumberException e) {
+            return new Object[][]{new Object[]{new CucumberExceptionWrapper(e)}};
+        }
+    }
+
 }
