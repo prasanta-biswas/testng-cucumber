@@ -1,6 +1,15 @@
 ## testng-cucumber
 The original cucumber-jvm supports running each feature as a testng test.Testng-Cucumber has an added support for running each scenario as a separate testng.
 
+##### Add the following maven dependency to your pom
+
+```xml
+<dependency>
+  <groupId>com.github.prasanta-biswas</groupId>
+  <artifactId>testng-cucumber</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 #### Examples
 
