@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.prasanta-biswas</groupId>
     <artifactId>testng-cucumber</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>Cucumber-JVM: TestNG Scenarios Support</name>
     <description>Supports runnig cucumber scenarion as testng test</description>
